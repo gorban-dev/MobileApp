@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_stocks_view"
+    android:layout_width="match_parent"
+    android:layout_height="68dp"
+    android:clickable="true"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="5dp"
+    style="@style/CardViewStyle"
+    android:focusable="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/loader_group"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            app:constraint_referenced_ids="text_stock_change_price_loader,
+            text_ticker_loader,text_stock_name_loader,text_stock_price_loader"/>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/view_group"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:constraint_referenced_ids="text_stock_change_price,
+            text_ticker,text_stock_name,text_stock_price, favorite_icon"/>
+
+        <com.elyeproj.loaderviewlibrary.LoaderImageView
+            android:id="@+id/stocks_logo_loader"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:visibility="visible"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/stocks_logo"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/no_stock_logo" />
+
+        <com.elyeproj.loaderviewlibrary.LoaderTextView
+            android:id="@+id/text_ticker_loader"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintBottom_toTopOf="@id/middle_line"
+            app:layout_constraintStart_toEndOf="@id/stocks_logo_loader"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/text_ticker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/middle_line"
+            app:layout_constraintStart_toEndOf="@id/stocks_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="yndx" />
+
+        <ImageButton
+            android:id="@+id/favorite_icon"
+            android:layout_width="19dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="3dp"
+            android:clickable="true"
+            android:src="@drawable/ic_favorite_off"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toTopOf="@id/middle_line"
+            app:layout_constraintStart_toEndOf="@id/text_ticker"
+            app:layout_constraintTop_toTopOf="parent"
+            android:focusable="true" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/middle_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5"/>
+
+        <com.elyeproj.loaderviewlibrary.LoaderTextView
+            android:id="@+id/text_stock_name_loader"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toEndOf="@id/stocks_logo_loader"
+            app:layout_constraintTop_toBottomOf="@id/middle_line"/>
+
+        <TextView
+            android:id="@+id/text_stock_name"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/montserrat"
+            android:lines="1"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/stocks_logo"
+            app:layout_constraintTop_toBottomOf="@id/middle_line"
+            tools:text="Yandex, Ld" />
+
+        <com.elyeproj.loaderviewlibrary.LoaderTextView
+            android:id="@+id/text_stock_price_loader"
+            android:layout_width="80dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="17dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/middle_line"/>
+
+        <TextView
+            android:id="@+id/text_stock_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="17dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/middle_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="4 764,6 P" />
+
+        <com.elyeproj.loaderviewlibrary.LoaderTextView
+            android:id="@+id/text_stock_change_price_loader"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/middle_line"/>
+
+        <TextView
+            android:id="@+id/text_stock_change_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/montserrat"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/middle_line"
+            tools:text="+ 55 P (1,15%)" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

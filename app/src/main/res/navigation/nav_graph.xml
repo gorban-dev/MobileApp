@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/collectionStockFragment">
+
+    <fragment
+        android:id="@+id/detailStockFragment"
+        android:name="ru.gorban.mobileinvestapp.ui.fragment.DetailStockFragment"
+        android:label="fragment_detail_stock"
+        tools:layout="@layout/fragment_detail_stock" >
+        <action
+            android:id="@+id/action_detailStockFragment_to_collectionStockFragment"
+            app:destination="@id/collectionStockFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/collectionStockFragment"
+        android:name="ru.gorban.mobileinvestapp.ui.fragment.CollectionStockFragment"
+        android:label="CollectionStockFragment" >
+        <action
+            android:id="@+id/action_collectionStockFragment_to_detailStockFragment2"
+            app:destination="@id/detailStockFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
+    </fragment>
+</navigation>

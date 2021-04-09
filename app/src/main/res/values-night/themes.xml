@@ -1,0 +1,137 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MobileInvestApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/color</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!-- AppBarLayout color. -->
+    <style name="AppBarLayout" >
+        <item name="background">@color/black</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <!-- CardViewStockEven color. -->
+    <style name="CardViewStyle" parent="CardView.Dark">
+        <item name="cardBackgroundColor">@color/black</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <style name="Stock">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
+        <item name="android:background">@drawable/stock_bgr_night</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- Favorite Button details fragment. -->
+    <style name="Favorite">
+        <item name="android:src">@drawable/ic_favorite_off_detail_night</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <!-- Back Button details fragment. -->
+    <style name="Back">
+        <item name="android:src">@drawable/ic_button_back_night</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <!-- Button color chart fragment. -->
+    <style name="Chart" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">@color/background_color_chip_state_list_night</item>
+        <item name="android:textColor">@color/text_color_chip_state_list_night</item>
+        <item name="chipCornerRadius">12dp</item>
+        <item name="chipMinHeight">44dp</item>
+        <item name="font">@font/montserrat</item>
+        <item name="chipStartPadding">13dp</item>
+        <item name="chipEndPadding">13dp</item>
+    </style>
+
+    <style name="Chip" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="textAppearanceCaption">@style/TextAppearance.MaterialComponents.Caption</item>
+        <item name="chipBackgroundColor">@color/cardview_dark_background</item>
+        <item name="android:padding">10dp</item>
+        <item name="font">@font/montserrat</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- Buy Button chart fragment. -->
+    <style name="Buy" >
+        <item name="android:theme">@style/Theme.AppCompat</item>
+        <item name="android:background">@drawable/btn_buy_background</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Caption</item>
+        <item name="android:backgroundTint">@color/cardview_dark_background</item>
+        <item name="android:topRightRadius">16dp</item>
+        <item name="android:topLeftRadius">16dp</item>
+        <item name="android:bottomLeftRadius">16dp</item>
+        <item name="android:bottomRightRadius">16dp</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- TabLayout color. -->
+    <style name="TabLayout" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="tabSelectedTextColor">@color/tab_text_night_color_on</item>
+        <item name="tabTextColor">@color/tab_text_night_color_off</item>
+        <item name="tabIndicatorHeight">0dp</item>
+    </style>
+
+    <!-- TabLayout text. -->
+    <style name="TextViewActive">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/tab_text_night_color_on</item>
+    </style>
+
+    <!-- TabLayout text. -->
+    <style name="TextViewInActive">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/tab_text_night_color_off</item>
+    </style>
+
+
+    <style name="CursorStyle" parent="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="colorControlActivated">@color/rating_bar_inactive_color</item>
+        <item name="android:textColorHint">@color/rating_bar_inactive_color</item>
+        <item name="android:textColor">@color/rating_bar_inactive_color</item>
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextColor">@color/rating_bar_inactive_color</item>
+        <item name="boxStrokeColor">@color/box_stroke_color_night</item>
+        <item name="boxCornerRadiusTopStart">30dp</item>
+        <item name="boxCornerRadiusTopEnd">30dp</item>
+        <item name="boxCornerRadiusBottomEnd">30dp</item>
+        <item name="boxCornerRadiusBottomStart">30dp</item>
+        <item name="startIconTint">@color/rating_bar_inactive_color</item>
+        <item name="endIconTint">@color/rating_bar_inactive_color</item>
+        <item name="startIconDrawable">@drawable/ic_button_search_night</item>
+        <item name="endIconDrawable">@drawable/ic_search_close_night</item>
+        <item name="android:theme">@style/CursorStyle</item>
+    </style>
+
+</resources>
