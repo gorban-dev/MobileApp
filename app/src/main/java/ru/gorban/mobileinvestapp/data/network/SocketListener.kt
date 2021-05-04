@@ -54,7 +54,7 @@ class SocketListener: WebSocketListener() {
   private fun updatePriceInDatabase(string: String) {
         val socketResponse = ResponseSocket(string)
         socketResponse.data?.let {list ->
-            val sortedList =  list.distinctBy { Selector(it.ticker, it.lastPrice) }
+            val sortedList =  list.distinctBy {it.ticker to it.lastPrice}
             GlobalScope.launch {
                 socketFlow.emit(sortedList)
             }

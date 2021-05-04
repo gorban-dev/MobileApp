@@ -7,8 +7,9 @@ import ru.gorban.mobileinvestapp.data.entity.News
 import ru.gorban.mobileinvestapp.data.entity.QuoteResponse
 import ru.gorban.mobileinvestapp.data.entity.Symbol
 import ru.gorban.mobileinvestapp.data.network.StocksService
+import javax.inject.Inject
 
-class RemoteCompanyRepository {
+class RemoteCompanyRepository @Inject constructor() {
 
     /**
      * Выполнение сетевых запросов

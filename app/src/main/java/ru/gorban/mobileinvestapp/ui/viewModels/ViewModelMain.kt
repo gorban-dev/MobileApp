@@ -1,40 +1,31 @@
 package ru.gorban.mobileinvestapp.ui.viewModels
 
-import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.cachedIn
 import kotlinx.coroutines.*
-import kotlinx.coroutines.channels.BufferOverflow
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.collectLatest
-import ru.gorban.mobileinvestapp.data.db.StocksDatabase
 import ru.gorban.mobileinvestapp.data.entity.CompanyProfile
 import ru.gorban.mobileinvestapp.data.entity.News
 import ru.gorban.mobileinvestapp.data.entity.RespCompany
 import ru.gorban.mobileinvestapp.data.entity.UserSearchHistory
-import ru.gorban.mobileinvestapp.data.network.WebServicesProvider
 import ru.gorban.mobileinvestapp.data.repository.RemoteCompanyRepository
 import ru.gorban.mobileinvestapp.data.repository.LocalCompanyRepository
 import ru.gorban.mobileinvestapp.data.repository.SocketRepository
 import ru.gorban.mobileinvestapp.data.repository.UserSearchRepository
+import javax.inject.Inject
 import kotlin.Exception
 
-class ViewModelMain(application: Application) : AndroidViewModel(application) {
+class ViewModelMain @Inject constructor(val remoteRepo: RemoteCompanyRepository,
+                                        val localCompanyRepository : LocalCompanyRepository,
+                                        val userSearchRepository: UserSearchRepository,
+                                        val repository: RespCompany,
+                                        val socketRepository: SocketRepository
+) : ViewModel() {
 
-
-    private val dataBase: StocksDatabase = StocksDatabase.getInstance(application)
-    private val remoteRepo: RemoteCompanyRepository = RemoteCompanyRepository()
-    private var _userSearchRepository = UserSearchRepository(dataBase.userSearchDao())
-    private val userSearchRepository get() = _userSearchRepository
-    private var _localCompanyRepository: LocalCompanyRepository = LocalCompanyRepository(dataBase.companyProfileDao())
-    private val localCompanyRepository get() = _localCompanyRepository
-    private val repository = RespCompany(localCompanyRepository, remoteRepo)
     private var _companyNews: MutableLiveData<List<News>> = MutableLiveData()
     val companyNews get() = _companyNews
-    var socketRepository: SocketRepository = SocketRepository(WebServicesProvider())
 
    //TODO Проработать логику записи в базу обновленной цены (при активных торгах слишком много обновлений приходит)
     fun subscribeToSocketEvents() {

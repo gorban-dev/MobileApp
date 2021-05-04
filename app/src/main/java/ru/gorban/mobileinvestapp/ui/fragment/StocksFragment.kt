@@ -148,7 +148,7 @@ class StocksFragment : Fragment(), PagingAdapter.OnCompanyListener {
             backButtonListener()
         }
 
-        fragment.binding.editText.setOnFocusChangeListener { view, isFocused ->
+        fragment.binding.editText.setOnFocusChangeListener { _, isFocused ->
             if (isFocused) {
                 fragment.binding.searchView.isEndIconVisible = true
                 job.cancel()
@@ -158,7 +158,7 @@ class StocksFragment : Fragment(), PagingAdapter.OnCompanyListener {
             }
         }
 
-        fragment.binding.editText.setOnKeyListener { view, keyCode, keyEvent ->
+        fragment.binding.editText.setOnKeyListener { _, keyCode, keyEvent ->
             if(keyEvent.action == KeyEvent.ACTION_DOWN &&
                 keyCode == KeyEvent.KEYCODE_ENTER){
                 val text = fragment.binding.searchView.editText?.text.toString()

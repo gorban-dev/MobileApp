@@ -13,8 +13,9 @@ import ru.gorban.mobileinvestapp.ui.viewModels.ViewModelMain
 
 class MainActivity : AppCompatActivity() {
 
+    private val component by lazy {DI.applicationComponent}
+    private val viewModelMain by viewModels<ViewModelMain>{component.viewModuleFactory()}
     private lateinit var binding: ActivityMainBinding
-    val viewModelMain: ViewModelMain by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

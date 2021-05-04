@@ -1,19 +1,22 @@
 package ru.gorban.mobileinvestapp.ui.viewModels
 
-import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import java.lang.IllegalArgumentException
+import javax.inject.Inject
+import javax.inject.Provider
 
 /**
  * Own implementation of ViewModelProvider.Factory to create ViewModelMain instance.
  */
-class StocksViewModelFactory(private val application: Application) : ViewModelProvider.Factory {
+class StocksViewModelFactory@Inject constructor(
+    private val viewModels: MutableMap<Class<out ViewModel>, Provider<ViewModel>>
+) : ViewModelProvider.Factory {
+
+    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(ViewModelMain::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return ViewModelMain(application) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
+        val viewModelProvider = viewModels[modelClass]
+            ?: throw IllegalArgumentException("ViewModel $modelClass not found")
+        return viewModelProvider.get() as T
     }
 }
